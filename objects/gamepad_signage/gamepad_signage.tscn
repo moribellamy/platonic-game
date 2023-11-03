@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bl7kvulpufxim"]
+
+[ext_resource type="Script" path="res://objects/gamepad_signage/gamepad_signage.gd" id="1_aflss"]
+[ext_resource type="Texture2D" uid="uid://3pw2djahs11f" path="res://assets/kenny.nl/sign.png" id="2_6cy3u"]
+[ext_resource type="FontFile" uid="uid://cr1cx2t4kpjp3" path="res://assets/managore.itch.io/m6x11/m6x11.ttf" id="3_s83kk"]
+[ext_resource type="Theme" uid="uid://bg4btmh6bk8d4" path="res://menus/theme.tres" id="3_tss3n"]
+[ext_resource type="Texture2D" uid="uid://dhrixbpr8ru2q" path="res://assets/srtoasty.itch.io/ui-assets-pack-2/UI assets pack 2/UI books & more.png" id="4_fbs1e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vv4r"]
+font = ExtResource("3_s83kk")
+font_color = Color(0, 0, 0, 1)
+
+[node name="GamepadSignage" type="Node2D"]
+script = ExtResource("1_aflss")
+trigger_distance = 500
+
+[node name="SignSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_6cy3u")
+
+[node name="Label" type="Label" parent="SignSprite"]
+offset_left = -27.5
+offset_top = -17.5
+offset_right = 31.5
+offset_bottom = 5.5
+text = "../../../.."
+label_settings = SubResource("LabelSettings_5vv4r")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = -87.0
+offset_top = -132.0
+offset_right = 86.0
+offset_bottom = -58.0
+texture = ExtResource("4_fbs1e")
+region_rect = Rect2(770.778, 66.6946, 42.535, 42.2716)
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 47.0
+offset_bottom = 30.0
+theme = ExtResource("3_tss3n")

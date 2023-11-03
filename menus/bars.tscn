@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bicejxrd87o08"]
+
+[ext_resource type="Script" path="res://menus/bars.gd" id="1_w46a2"]
+[ext_resource type="Texture2D" uid="uid://dncsvlde76xg0" path="res://assets/misc/hearts/heart_4.png" id="2_tmi8p"]
+[ext_resource type="Texture2D" uid="uid://bxcdd1dnkotnh" path="res://assets/misc/hearts/heart_3.png" id="3_tlf47"]
+[ext_resource type="Texture2D" uid="uid://dvvl23srae8kd" path="res://assets/misc/hearts/heart_2.png" id="4_fi1no"]
+[ext_resource type="Texture2D" uid="uid://dkf38virbwgx6" path="res://assets/misc/hearts/heart_1.png" id="5_ndh8g"]
+[ext_resource type="Texture2D" uid="uid://d27sdvayv0rei" path="res://assets/misc/hearts/heart_0.png" id="6_yrko5"]
+
+[node name="LevelUI" type="CanvasLayer"]
+script = ExtResource("1_w46a2")
+
+[node name="HeartStart" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(42, 29)
+
+[node name="Templates" type="Node" parent="."]
+
+[node name="FourHeart" type="Sprite2D" parent="Templates"]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("2_tmi8p")
+
+[node name="ThreeHeart" type="Sprite2D" parent="Templates"]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("3_tlf47")
+
+[node name="TwoHeart" type="Sprite2D" parent="Templates"]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("4_fi1no")
+
+[node name="OneHeart" type="Sprite2D" parent="Templates"]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("5_ndh8g")
+
+[node name="ZeroHeart" type="Sprite2D" parent="Templates"]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("6_yrko5")
+
+[node name="Message" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 266.0
+offset_top = 168.0
+offset_right = 306.0
+offset_bottom = 191.0

@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bg4btmh6bk8d4"]
+
+[ext_resource type="FontFile" uid="uid://cr1cx2t4kpjp3" path="res://assets/managore.itch.io/m6x11/m6x11.ttf" id="1_xome4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68b5e"]
+bg_color = Color(0, 0, 0, 0.447059)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3x1p3"]
+bg_color = Color(1, 0.368627, 0.34902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_xome4")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_68b5e")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_3x1p3")

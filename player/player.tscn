@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://j0oov6vb4o61"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_3l5aw"]
+[ext_resource type="AudioStream" uid="uid://dw56rprkqwyd5" path="res://assets/freesound.org/people/acebrian/jump.wav" id="5_xks7p"]
+[ext_resource type="AudioStream" uid="uid://cmhw71c2ohq" path="res://assets/freesound.org/people/OtisJames/thud.wav" id="6_3mvvg"]
+[ext_resource type="AudioStream" uid="uid://kyq3kr0hcb43" path="res://assets/kenny.nl/impactPlate_light_000.ogg" id="7_irvxb"]
+[ext_resource type="PackedScene" uid="uid://brr73wwyjqgje" path="res://player/player_animation.tscn" id="10_f6jms"]
+[ext_resource type="AudioStream" uid="uid://cd1vooo3issu7" path="res://assets/freesound.org/people/qubodup/whoosh.wav" id="11_v7ixp"]
+[ext_resource type="Script" path="res://nodes/hitbox.gd" id="20_pogrc"]
+[ext_resource type="Script" path="res://nodes/hurtbox.gd" id="21_0pa0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3ufi"]
+size = Vector2(32, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wubn5"]
+size = Vector2(41, 56)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 33
+floor_stop_on_slope = false
+floor_constant_speed = true
+platform_floor_layers = 0
+script = ExtResource("1_3l5aw")
+
+[node name="PlayerAnimation" parent="." instance=ExtResource("10_f6jms")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_a3ufi")
+
+[node name="SlashHitbox" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(28, 7)
+script = ExtResource("20_pogrc")
+damage = 10
+hurts_groups = Array[String](["enemy"])
+once_per = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlashHitbox"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_wubn5")
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, 7)
+script = ExtResource("21_0pa0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_a3ufi")
+
+[node name="Sfx" type="Node2D" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sfx"]
+stream = ExtResource("5_xks7p")
+
+[node name="Thud" type="AudioStreamPlayer2D" parent="Sfx"]
+stream = ExtResource("6_3mvvg")
+
+[node name="Tink" type="AudioStreamPlayer2D" parent="Sfx"]
+stream = ExtResource("7_irvxb")
+
+[node name="Whoosh" type="AudioStreamPlayer2D" parent="Sfx"]
+stream = ExtResource("11_v7ixp")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
