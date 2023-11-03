@@ -35,6 +35,10 @@ window/size/viewport_width=640
 window/size/viewport_height=360
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="/Users/mori/Desktop/movie.avi"
+
 [input]
 
 debug_plus={
